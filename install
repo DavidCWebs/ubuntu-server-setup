@@ -32,7 +32,7 @@ if [ "$CONT" = "y" ]; then
     clear
     echo "Starting..."
     # Run
-    run 2>&1 | tee -a /root/lamp-setup.log
+    run 2>&1 | tee -a $HOME/lamp-setup.log
 else
   echo "Cancelled";
 fi
