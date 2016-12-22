@@ -7,10 +7,10 @@ CUR_DIR=`pwd`
 
 function include(){
     local include=$1
-    if [[ -s ${CUR_DIR}/includes/${include}.sh ]];then
-        . ${CUR_DIR}/includes/${include}.sh
+    if [[ -s ${CUR_DIR}/includes/${include} ]];then
+        . ${CUR_DIR}/includes/${include}
     else
-        echo "Error:${CUR_DIR}/include/${include}.sh not found."
+        echo "Error:${CUR_DIR}/includes/${include} not found."
         exit 1
     fi
 }
