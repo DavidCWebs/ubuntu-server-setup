@@ -1,0 +1,38 @@
+#!/bin/bash
+# Set up a LAMP stack
+#
+# Run as sudo
+# ------------------------------------------------------------------------------
+cur_dir=`pwd`
+
+function include(){
+    local include=$1
+    if [[ -s ${cur_dir}/includes/${include}.sh ]];then
+        . ${cur_dir}/includes/${include}.sh
+    else
+        echo "Error:${cur_dir}/include/${include}.sh not found."
+        exit 1
+    fi
+}
+
+function run() {
+
+    include apache
+    include php
+    include mariadb
+    include report
+
+}
+
+echo "This script is potentially dangerous. It sets up a LAMP stack."
+echo "Don't run if you already have a LAMP stack on this machine."
+echo ""
+read -p "Do you want to continue (y/n)?" CONT
+if [ "$CONT" = "y" ]; then
+    clear
+    echo "Starting..."
+    # Run
+    run 2>&1 | tee -a /root/lamp-setup.log
+else
+  echo "Cancelled";
+fi

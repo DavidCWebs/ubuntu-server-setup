@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Install PHP
+# ------------------------------------------------------------------------------
+echo "Installing PHP and extra modules..."
+apt-get install php libapache2-mod-php php-mcrypt php-mysql php-mbstring php-curl
+
+echo "Enabling mcrypt & mbstring..."
+phpenmod mcrypt
+phpenmod mbstring
+
+echo "Restarting Apache..."
+sudo service apache2 restart

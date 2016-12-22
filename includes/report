@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+#LOG="/root/installed.log"
+LOG="/home/david/bash-projects-public/server-sysadmin/setup-lamp/log"
+
+echo "Apache Details" > $LOG
+echo "--------------" >> $LOG
+echo "Apache:"
+
+apache2 -v 2>&1 | tee -a $LOG
+
+echo "Apache Modules installed:"
+apache2ctl -M | sort 2>&1 | tee -a $LOG
+
+echo "" >> $LOG
+echo "PHP Details" >> $LOG
+echo "-----------" >> $LOG
+echo "PHP:"
+php -v 2>&1 | tee -a $LOG
+
+echo "PHP Modules installed:"
+php -m 2>&1 | tee -a $LOG
+
+echo "" >> $LOG
+echo "MariaDB Details" >> $LOG
+echo "---------------" >> $LOG
+echo "MariaDB:"
+mysql --version 2>&1 | tee -a $LOG
