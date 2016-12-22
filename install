@@ -3,14 +3,14 @@
 #
 # Run as sudo
 # ------------------------------------------------------------------------------
-cur_dir=`pwd`
+CUR_DIR=`pwd`
 
 function include(){
     local include=$1
-    if [[ -s ${cur_dir}/includes/${include}.sh ]];then
-        . ${cur_dir}/includes/${include}.sh
+    if [[ -s ${CUR_DIR}/includes/${include}.sh ]];then
+        . ${CUR_DIR}/includes/${include}.sh
     else
-        echo "Error:${cur_dir}/include/${include}.sh not found."
+        echo "Error:${CUR_DIR}/include/${include}.sh not found."
         exit 1
     fi
 }
