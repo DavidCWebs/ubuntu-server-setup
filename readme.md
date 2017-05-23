@@ -20,4 +20,4 @@ MariaDB is sourced here: http://lon1.mirrors.digitalocean.com/mariadb/repo/10.1/
 * Clone this repo
 * Move into the repo, e.g. `cd setup-lamp`
 * Make `install` executable: `sudo chmod +x install`
-* Run `./install`
+* Run `sudo ./install`
