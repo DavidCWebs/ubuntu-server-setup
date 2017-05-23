@@ -3,8 +3,9 @@
 echo "Setting up Apache..."
 apt-get install apache2
 
-echo "Installing Apache modules..."
-apt-get install php libapache2-mod-php php-mcrypt php-mysql
+# This is duplication:
+# echo "Installing Apache modules..."
+# apt-get install php libapache2-mod-php php-mcrypt php-mysql
 
 echo "Enabling Apache SSL, Headers & Rewrite modules..."
 a2enmod ssl
