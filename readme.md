@@ -1,8 +1,6 @@
 Set Up LAMP Stack
 =================
-This is pretty basic and experimental - so please be careful and use at your own risk. Pull requests welcome.
-
-This script sets up:
+Use at your own risk. Pull requests welcome. This script sets up:
 
 * Apache
 * MariaDB
@@ -20,4 +18,10 @@ MariaDB is sourced here: http://lon1.mirrors.digitalocean.com/mariadb/repo/10.1/
 * Clone this repo
 * Move into the repo, e.g. `cd setup-lamp`
 * Make `install` executable: `sudo chmod +x install`
-* Run `sudo ./install`
+* Run `sudo ./setup-lamp.sh`
+
+Resources
+---------
+* [FQDN][1]
+
+[1]: https://github.com/DigitalOcean-User-Projects/Articles-and-Tutorials/blob/master/set_hostname_fqdn_on_ubuntu_centos.md
