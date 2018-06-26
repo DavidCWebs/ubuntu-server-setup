@@ -40,6 +40,7 @@ function set_fqdn {
   sed -i 's/127.0.1.1.*/127.0.1.1\t'"${USER_FQDN}"'/g' /etc/hosts
   hostnamectl set-hostname ${USER_FQDN}
   hostname -F /etc/hostname
+  systemctl restart systemd-logind.service
 }
 
 function install_SSH {
@@ -61,6 +62,7 @@ function add_remote_SSH_public_key {
 function lockdown_SSH {
   sed -re 's/^(\#?)(PasswordAuthentication)([[:space:]]+)yes/\2\3no/' -i."$(echo 'bak')" /etc/ssh/sshd_config
   sed -re 's/^(\#?)(PermitRootLogin)([[:space:]]+)(.*)/PermitRootLogin no/' -i /etc/ssh/sshd_config
+  echo "IMPORTANT: Check that you have SSH access to this server BEFORE closing the current connection."
 }
 
 function run {
@@ -70,7 +72,6 @@ function run {
   install_SSH
   add_remote_SSH_public_key
   lockdown_SSH
-  SSH_message
 }
 
 echo "This script sets up a new user and locks down SSH access."

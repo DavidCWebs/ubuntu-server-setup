@@ -9,3 +9,6 @@ a2enmod rewrite
 
 echo "Restarting Apache..."
 service apache2 restart
+
+echo "Only retain logs for 7 days. Original logrotate config: /etc/logrotate.d/apache2.bak"
+sudo sed -i.bak 's/\brotate\ .*\b/rotate\ 7/g' /etc/logrotate.d/apache2
