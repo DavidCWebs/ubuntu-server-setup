@@ -10,7 +10,7 @@ Enables Apache SSL, Headers & Rewrite modules.
 
 PHP modules `libapache2-mod-php`, `php-mcrypt`, `php-mysql`, `php-mbstring` and `php-curl` are also installed.
 
-MariaDB is sourced here: http://lon1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu xenial main. A good refinement to this package would be to build in a way to choose download mirrors by location and OS.
+MariaDB is sourced here: http://lon1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu xenial main. Amend this haredcoded value here: `includes/mariadb`. A refinement to this package would be to build in a way to choose download mirrors by location and OS.
 
 `mysql_secure_installation` runs after MariaDB is installed, and the MariaDB repo is pinned here `/etc/apt/preferences.d/mariadb.pref` to avoid conflicts with MySQL package when updating.
 
@@ -38,6 +38,13 @@ SSH setup disallows password login and sets `PermitRootLogin no`. From `man SSH`
 >If this option is set to “no”, root is not allowed to log in.
 
 Be sure to check that you have SSH access to the server after running the script and BEFORE closing your current connection.
+
+Rsync this Utility
+------------------
+Once you have SSH access, you can use Rsync to copy files across:
+```
+rsync -raz --progress /home/user/path/ubuntu-server-setup root@192.168.122.16:
+```
 
 Resources
 ---------
